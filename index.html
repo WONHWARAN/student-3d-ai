@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>그림 → 3D 모델링</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>🎨 그림을 3D로</h1>
+      <p>그림을 올리면 웹에서 바로 입체적으로 확인할 수 있어요.</p>
+    </header>
+
+    <section class="card upload-card">
+      <label class="dropzone" id="dropzone">
+        <input id="fileInput" type="file" accept="image/png,image/jpeg,image/webp">
+        <span class="upload-icon">＋</span>
+        <strong>그림을 올려주세요</strong>
+        <small>PNG, JPG, WEBP · 파일을 끌어다 놓아도 됩니다.</small>
+      </label>
+      <div class="preview-row">
+        <img id="preview" alt="업로드 미리보기">
+        <div class="controls">
+          <label>입체감 <input id="depth" type="range" min="0.05" max="1" value="0.35" step="0.05"></label>
+          <label>해상도 <input id="resolution" type="range" min="32" max="128" value="72" step="8"></label>
+          <button id="make3d" disabled>3D 모델 만들기</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card viewer-card">
+      <div class="viewer-header">
+        <h2>3D 결과</h2>
+        <span id="status">그림을 먼저 올려주세요.</span>
+      </div>
+      <div id="viewer"></div>
+      <div class="help">마우스로 회전 · 휠로 확대/축소 · 휴대폰에서는 손가락으로 조작</div>
+    </section>
+
+    <footer>
+      현재 버전은 <b>이미지의 밝기/형태를 이용해 3D 표면을 만드는 방식</b>입니다.
+      이후 AI 3D 생성 API를 연결하면 그림 속 사물을 인식해 실제 입체 형태로 만드는 기능으로 확장할 수 있습니다.
+    </footer>
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
